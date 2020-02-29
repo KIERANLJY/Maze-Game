@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MapManager : MonoBehaviour
     public int rows = 22;
     public int cols = 22;
 
+    bool cancelPressed;
+
     private Transform mapHolder;
 
     // Start is called before the first frame update
@@ -24,7 +27,11 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cancelPressed = Input.GetButtonDown("Cancel");
+        if (cancelPressed)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     // Initialise map

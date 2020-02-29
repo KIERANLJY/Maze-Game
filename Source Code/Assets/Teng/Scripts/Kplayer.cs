@@ -37,20 +37,18 @@ public class Kplayer : MonoBehaviour
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
        
-        
-
-        if(h<0)
-        {
-            transform.localScale = new Vector2(-1,1);
-        }
-        if(h>0)
-        {
-            transform.localScale = new Vector2(1,1);
-        }
-        
         if(h != 0||v != 0)
         {
-            animator.SetTrigger("Walk");
+            if(h<0)
+            {
+                transform.localScale = new Vector2(-1,1);
+            }
+            if(h>0)
+            {
+                transform.localScale = new Vector2(1,1);
+            }
+            animator.SetTrigger("walk");
+
             //检测
             collider.enabled = false;
             RaycastHit2D hit = Physics2D.Linecast(targetpos, targetpos + new Vector2(h,v));

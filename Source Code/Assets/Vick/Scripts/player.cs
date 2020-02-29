@@ -13,12 +13,14 @@ public class player : MonoBehaviour
     public Vector2 targetpos = new Vector2(1, 1);
     private Rigidbody2D rigidbody;
     private BoxCollider2D collider;
+    private Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,21 +28,7 @@ public class player : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        if (h > 0 || h < 0)
-        {
-            v = 0;
-        }
-        if (h < 0)
-        {
-            transform.localScale = new Vector2(-1, 1);
-        }
-        if (h > 0)
-        {
-            transform.localScale = new Vector2(1, 1);
-        }
-
-
-
+        
         rigidbody.MovePosition(Vector2.Lerp(transform.position, targetpos, smoothing * Time.deltaTime));
 
         restTimer += Time.deltaTime;
@@ -49,6 +37,15 @@ public class player : MonoBehaviour
         
         if (h != 0 || v != 0)
         {
+            if (h < 0)
+            {
+                transform.localScale = new Vector2(-1, 1);
+            }
+            if (h > 0)
+            {
+                transform.localScale = new Vector2(1, 1);
+            }
+            animator.SetTrigger("walking");
             //check
             collider.enabled = false;
             RaycastHit2D hit = Physics2D.Linecast(targetpos,targetpos+new Vector2(h,v));

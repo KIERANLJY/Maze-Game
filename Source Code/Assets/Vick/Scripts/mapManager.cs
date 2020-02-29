@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mapManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class mapManager : MonoBehaviour
 
     public GameObject door;
 
-
+    bool cancelPressed;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,11 @@ public class mapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        cancelPressed = Input.GetButtonDown("Cancel");
+        if (cancelPressed)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void IntiMap()
@@ -76,13 +81,11 @@ public class mapManager : MonoBehaviour
         initWall(2, 2);
         initWall(2, 4);
         initWall(2, 6);
-        initWall(2, 7);
         initWall(2, 8);
         initWall(2, 9);
         initWall(2, 10);
         initWall(2, 11);
         initWall(2, 12);
-        initWall(2, 14);
         initWall(2, 16);
         initWall(2, 18);
         initWall(2, 19);
@@ -97,7 +100,6 @@ public class mapManager : MonoBehaviour
         initWall(3, 4);
         initWall(3, 8);
         initWall(3, 12);
-        initWall(3, 14);
         initWall(3, 16);
         initWall(3, 20);
         initWall(3, 22);
@@ -119,15 +121,12 @@ public class mapManager : MonoBehaviour
         initWall(4, 26);
         initWall(4, 27);
         initWall(5, 2);
-        initWall(5, 8);
         initWall(5, 14);
         initWall(5, 18);
         initWall(5, 20);
         initWall(5, 24);
         initWall(6, 2);
         initWall(6, 3);
-        initWall(6, 4);
-        initWall(6, 5);
         initWall(6, 6);
         initWall(6, 8);
         initWall(6, 9);
@@ -149,7 +148,6 @@ public class mapManager : MonoBehaviour
         initWall(6, 27);
         initWall(6, 28);
         initWall(7, 8);
-        initWall(7, 14);
         initWall(7, 20);
         initWall(7, 24);
         initWall(8, 2);
@@ -157,14 +155,10 @@ public class mapManager : MonoBehaviour
         initWall(8, 4);
         initWall(8, 5);
         initWall(8, 6);
-        initWall(8, 7);
         initWall(8, 8);
         initWall(8, 10);
-        initWall(8, 11);
         initWall(8, 12);
         initWall(8, 13);
-        initWall(8, 14);
-        initWall(8, 16);
         initWall(8, 17);
         initWall(8, 18);
         initWall(8, 20);
@@ -194,12 +188,10 @@ public class mapManager : MonoBehaviour
         initWall(10, 14);
         initWall(10, 16);
         initWall(10, 18);
-        initWall(10, 20);
         initWall(10, 22);
         initWall(10, 24);
         initWall(11, 8);
         initWall(11, 16);
-        initWall(11, 20);
         initWall(11, 22);
         initWall(11, 27);
         initWall(12, 1);
@@ -225,6 +217,7 @@ public class mapManager : MonoBehaviour
         initWall(13, 6);
         initWall(13, 8);
         initWall(13, 20);
+        initWall(13, 21);
         initWall(13, 22);
         initWall(13, 23);
         initWall(13, 24);
@@ -274,7 +267,6 @@ public class mapManager : MonoBehaviour
         initWall(16, 22);
         initWall(16, 24);
         initWall(16, 27);
-        initWall(17, 2);
         initWall(17, 10);
         initWall(17, 12);
         initWall(17, 14);
@@ -284,8 +276,6 @@ public class mapManager : MonoBehaviour
         initWall(18, 2);
         initWall(18, 3);
         initWall(18, 4);
-        initWall(18, 5);
-        initWall(18, 6);
         initWall(18, 7);
         initWall(18, 8);
         initWall(18, 8);
@@ -320,7 +310,6 @@ public class mapManager : MonoBehaviour
         initWall(20, 13);
         initWall(20, 14);
         initWall(20, 16);
-        initWall(20, 17);
         initWall(20, 18);
         initWall(20, 20);
         initWall(20, 22);
@@ -333,8 +322,7 @@ public class mapManager : MonoBehaviour
         initWall(21, 16);
         initWall(21, 18);
         initWall(21, 20);
-        initWall(21, 21);
-        initWall(21, 22);
+        initWall(21, 23);
         initWall(21, 24);
         initWall(22, 2);
         initWall(22, 4);
@@ -356,8 +344,6 @@ public class mapManager : MonoBehaviour
         initWall(23, 19);
         initWall(23, 20);
         initWall(23, 21);
-        initWall(23, 22);
-        initWall(23, 23);
         initWall(23, 24);
         initWall(23, 27);
         initWall(24, 2);
@@ -377,7 +363,6 @@ public class mapManager : MonoBehaviour
         initWall(25, 13);
         initWall(25, 15);
         initWall(25, 16);
-        initWall(25, 17);
         initWall(25, 18);
         initWall(25, 19);
         initWall(25, 20);
@@ -398,6 +383,7 @@ public class mapManager : MonoBehaviour
         initWall(26, 13);
         initWall(26, 15);
         initWall(26, 21);
+        initWall(26, 26);
         initWall(26, 25);
         initWall(26, 27);
         initWall(27, 4);
@@ -409,18 +395,13 @@ public class mapManager : MonoBehaviour
         initWall(27, 18);
         initWall(27, 19);
         initWall(27, 21);
-        initWall(27, 23);
-        initWall(27, 25);
-        initWall(27, 26);
-        initWall(27, 27);
         initWall(28, 4);
         initWall(28, 10);
         initWall(28, 13);
-        initWall(28, 23);
 
         
         // create enemy
-        for (int i=0;i<10;i++)
+        for (int i=0;i<7;i++)
         {
             int positionindex = Random.Range(0, positionList.Count);
             Vector2 pos = positionList[positionindex];

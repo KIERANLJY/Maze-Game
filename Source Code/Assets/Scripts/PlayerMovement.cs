@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
+    private Animator animator;
 
     [Header("移动参数")]
     public float speed = 8f;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
  
     // Update is called once per frame
@@ -85,12 +87,12 @@ public class PlayerMovement : MonoBehaviour
         if(xVelocity < 0)
         {   
             transform.localScale = new Vector2(-1,1);
-
+            animator.SetTrigger("Walk");
         }
         if (xVelocity > 0)
         {
             transform.localScale = new Vector2(1,1);
-
+            animator.SetTrigger("Walk");
         }
 
     }
